@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>DEF Obras · Orçamento e controle de obras</title>
+<link rel="icon" type="image/svg+xml" href="../assets/logo/def-engenharia-simbolo.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/logo/def-engenharia-simbolo-32px.png">
+<link rel="apple-touch-icon" href="../assets/logo/def-engenharia-simbolo-180px.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+<div class="app">
+  <header class="lateral">
+    <a class="marca" href="#/painel">
+      <img src="../assets/logo/def-engenharia-horizontal-negativo.svg" alt="DEF Engenharia" width="220" height="39">
+      <span>Orçamento e controle de obras</span>
+    </a>
+    <nav class="menu" aria-label="Principal">
+      <a href="#/painel" data-tela="painel">Painel</a>
+      <a href="#/orcamentos" data-tela="orcamentos">Orçamentos</a>
+      <a href="#/obras" data-tela="obras">Obras</a>
+      <a href="#/clientes" data-tela="clientes">Clientes</a>
+      <a href="#/catalogo" data-tela="catalogo">Catálogo</a>
+      <a href="#/config" data-tela="config">Configurações</a>
+    </nav>
+  </header>
+  <main id="conteudo" tabindex="-1">
+    <noscript>Este sistema precisa de JavaScript ativado no navegador.</noscript>
+  </main>
+</div>
+<div id="avisos" class="avisos" role="status" aria-live="polite"></div>
+
+<datalist id="lista-etapas">
+  <option value="Projeto e documentação"></option>
+  <option value="Entrada de energia"></option>
+  <option value="Infraestrutura"></option>
+  <option value="Cabeamento"></option>
+  <option value="Quadros e proteção"></option>
+  <option value="Iluminação e tomadas"></option>
+  <option value="SPDA e aterramento"></option>
+  <option value="Testes e entrega"></option>
+</datalist>
+
+<script src="js/calc.js"></script>
+<script src="js/store.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/views-cadastros.js"></script>
+<script src="js/views-orcamento.js"></script>
+<script src="js/views-obra.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
