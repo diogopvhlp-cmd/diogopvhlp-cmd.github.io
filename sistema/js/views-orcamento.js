@@ -89,8 +89,8 @@
       '<td><input class="texto" data-item-campo="descricao" list="lista-catalogo" value="' + esc(item.descricao) + '" aria-label="Descrição do item" autocomplete="off"></td>' +
       '<td><input class="curto" data-item-campo="unidade" value="' + esc(item.unidade) + '" aria-label="Unidade" autocomplete="off"></td>' +
       '<td><input class="numero" inputmode="decimal" data-item-campo="quantidade" value="' + ui.campoNumero(item.quantidade) + '" aria-label="Quantidade" autocomplete="off"></td>' +
-      '<td><input class="numero" inputmode="decimal" data-item-campo="material" value="' + ui.campoNumero(item.material) + '" aria-label="Custo de material por unidade" autocomplete="off"></td>' +
-      '<td><input class="numero" inputmode="decimal" data-item-campo="maoDeObra" value="' + ui.campoNumero(item.maoDeObra) + '" aria-label="Custo de mão de obra por unidade" autocomplete="off"></td>' +
+      '<td><input class="numero" inputmode="decimal" data-item-campo="material" value="' + ui.campoDinheiro(item.material) + '" aria-label="Custo de material por unidade" autocomplete="off"></td>' +
+      '<td><input class="numero" inputmode="decimal" data-item-campo="maoDeObra" value="' + ui.campoDinheiro(item.maoDeObra) + '" aria-label="Custo de mão de obra por unidade" autocomplete="off"></td>' +
       '<td class="num" data-out="item-custo:' + id + '">' + ui.dinheiro(calc.itemCusto(item).total) + '</td>' +
       '<td class="num" data-out="item-preco:' + id + '">' + ui.dinheiro(calc.itemPreco(item, bdi)) + '</td>' +
       '<td><button type="button" class="icone" data-acao="remover-item" data-id="' + id + '" aria-label="Remover item">' + ui.ICONES.lixeira + '</button></td></tr>'
@@ -193,7 +193,7 @@
         '<label class="rotulo">Data<input type="date" data-campo="data" value="' + esc(orc.data) + '"></label>' +
         '<label class="rotulo">Validade, em dias<input inputmode="numeric" data-campo="validadeDias" value="' + ui.campoNumero(orc.validadeDias) + '" autocomplete="off"></label>' +
         '<label class="rotulo">BDI, em %<input inputmode="decimal" data-campo="bdi" value="' + ui.campoNumero(orc.bdi) + '" autocomplete="off"></label>' +
-        '<label class="rotulo">Desconto, em R$<input inputmode="decimal" data-campo="desconto" value="' + ui.campoNumero(orc.desconto) + '" autocomplete="off"></label>' +
+        '<label class="rotulo">Desconto, em R$<input inputmode="decimal" data-campo="desconto" value="' + ui.campoDinheiro(orc.desconto) + '" autocomplete="off"></label>' +
         '<label class="rotulo duplo">Condições e observações desta proposta<textarea data-campo="observacoes" rows="3" placeholder="Exemplo: prazo de execução, forma de pagamento, itens não incluídos.">' + esc(orc.observacoes) + '</textarea></label>' +
         '</div></section>';
 
@@ -251,6 +251,12 @@
         DEF.app.desenhar();
         return;
       }
+      var custoDoItem = el.dataset.itemCampo === 'material' || el.dataset.itemCampo === 'maoDeObra';
+      if (custoDoItem || el.dataset.campo === 'desconto') {
+        // Ao sair do campo, o valor passa a aparecer no formato de reais (1.450,00).
+        el.value = ui.campoDinheiro(Math.max(0, calc.parseNum(el.value)));
+        return;
+      }
       if (el.dataset.itemCampo !== 'descricao') return;
       // Descrição igual à de um item do catálogo: preenche unidade e custos, sem apagar o que já foi digitado.
       var procurado = el.value.trim().toLowerCase();
@@ -267,8 +273,8 @@
       item.material = doCatalogo.material;
       item.maoDeObra = doCatalogo.maoDeObra;
       linha.querySelector('[data-item-campo="unidade"]').value = item.unidade;
-      linha.querySelector('[data-item-campo="material"]').value = ui.campoNumero(item.material);
-      linha.querySelector('[data-item-campo="maoDeObra"]').value = ui.campoNumero(item.maoDeObra);
+      linha.querySelector('[data-item-campo="material"]').value = ui.campoDinheiro(item.material);
+      linha.querySelector('[data-item-campo="maoDeObra"]').value = ui.campoDinheiro(item.maoDeObra);
       store.salvar();
       atualizarTotais(document.getElementById('conteudo'), orc);
     },

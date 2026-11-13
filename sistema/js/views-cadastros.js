@@ -221,8 +221,8 @@
       campo('Descrição', 'descricao', i.descricao, { classe: 'duplo', atributos: ' required autocomplete="off"' }) +
       campo('Unidade', 'unidade', i.unidade || 'un', { atributos: ' autocomplete="off"' }) +
       campo('Categoria', 'categoria', i.categoria, { atributos: ' list="lista-etapas" autocomplete="off"' }) +
-      campo('Material, R$ por unidade', 'material', ui.campoNumero(i.material), { atributos: ' inputmode="decimal" autocomplete="off"' }) +
-      campo('Mão de obra, R$ por unidade', 'maoDeObra', ui.campoNumero(i.maoDeObra), { atributos: ' inputmode="decimal" autocomplete="off"' }) +
+      campo('Material, R$ por unidade', 'material', ui.campoDinheiro(i.material), { atributos: ' inputmode="decimal" autocomplete="off"' }) +
+      campo('Mão de obra, R$ por unidade', 'maoDeObra', ui.campoDinheiro(i.maoDeObra), { atributos: ' inputmode="decimal" autocomplete="off"' }) +
       '</div><div class="acoes"><button class="botao primario" type="submit">Salvar item</button>' +
       '<button class="botao" type="button" data-acao="cancelar">Cancelar</button></div></form>'
     );

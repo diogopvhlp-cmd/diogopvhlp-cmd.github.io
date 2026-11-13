@@ -5,6 +5,7 @@
 
   var formatoMoeda = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' });
   var formatoNumero = new Intl.NumberFormat('pt-BR', { maximumFractionDigits: 2 });
+  var formatoCampoDinheiro = new Intl.NumberFormat('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 4 });
   var ESCAPES = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
 
   /** Todo texto digitado pelo usuário passa por aqui antes de entrar no HTML. */
@@ -24,6 +25,12 @@
   function campoNumero(v) {
     var n = Number(v) || 0;
     return n === 0 ? '' : String(n).replace('.', ',');
+  }
+
+  /** Valor em reais para um campo de digitação: vazio quando é zero, sempre com centavos (1.450,00). */
+  function campoDinheiro(v) {
+    var n = Number(v) || 0;
+    return n === 0 ? '' : formatoCampoDinheiro.format(n);
   }
 
   function data(iso) {
@@ -100,6 +107,7 @@
     dinheiro: dinheiro,
     numero: numero,
     campoNumero: campoNumero,
+    campoDinheiro: campoDinheiro,
     data: data,
     somarDias: somarDias,
     diasDesde: diasDesde,
