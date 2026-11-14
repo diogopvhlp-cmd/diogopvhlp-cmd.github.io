@@ -1,0 +1,145 @@
+/* Site da DEF Engenharia. Página única, sem dependências além da fonte Manrope. */
+:root {
+  --azul: #0F2A43;
+  --azul-2: #17395A;
+  --ambar: #F5A623;
+  --ambar-escuro: #D98C0B;
+  --grafite: #1F2933;
+  --cinza: #52606D;
+  --cinza-claro: #F2F4F7;
+  --linha: #D9DEE5;
+  --branco: #FFFFFF;
+  --raio: 12px;
+  --largura: 1120px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  margin: 0;
+  font-family: 'Manrope', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--grafite);
+  background: var(--branco);
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+h1, h2, h3, p { margin: 0; }
+h1, h2, h3 { color: var(--azul); line-height: 1.2; text-wrap: balance; }
+h2 { font-size: clamp(26px, 3.2vw, 34px); font-weight: 800; letter-spacing: -0.01em; }
+h3 { font-size: 19px; font-weight: 700; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--ambar); outline-offset: 3px; border-radius: 6px; }
+
+.faixa { width: 100%; max-width: var(--largura); margin: 0 auto; padding: 0 24px; }
+
+.pular {
+  position: absolute; left: 16px; top: -60px; z-index: 20;
+  padding: 10px 14px; background: var(--ambar); color: var(--azul); font-weight: 700; border-radius: 8px;
+}
+.pular:focus { top: 12px; }
+
+/* ------------------------------------------------------------------ Botões */
+.botao {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 44px; padding: 10px 18px;
+  border: 2px solid transparent; border-radius: 10px;
+  font: inherit; font-size: 15px; font-weight: 700; text-decoration: none; white-space: nowrap;
+  transition: background-color .15s, border-color .15s, color .15s;
+}
+.botao.grande { min-height: 52px; padding: 12px 24px; font-size: 16px; }
+.botao.primario { background: var(--ambar); color: var(--azul); }
+.botao.primario:hover { background: #FFB738; }
+.botao.contorno { border-color: rgba(255, 255, 255, .55); color: var(--branco); }
+.botao.contorno:hover { border-color: var(--branco); background: rgba(255, 255, 255, .08); }
+
+/* -------------------------------------------------------------------- Topo */
+.topo { position: sticky; top: 0; z-index: 10; background: rgba(255, 255, 255, .96); border-bottom: 1px solid var(--linha); backdrop-filter: blur(6px); }
+.topo-linha { display: flex; align-items: center; gap: 28px; min-height: 68px; }
+.marca { display: inline-flex; flex: none; }
+.menu { display: flex; gap: 26px; margin-left: auto; }
+.menu a { font-size: 15px; font-weight: 600; color: var(--grafite); text-decoration: none; padding: 8px 0; border-bottom: 2px solid transparent; }
+.menu a:hover { border-bottom-color: var(--ambar); }
+
+/* ---------------------------------------------------------------- Abertura */
+.abertura { background: var(--azul); color: var(--branco); padding: 84px 0 92px; }
+.abertura-grade { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 56px; align-items: center; }
+.sobretitulo { font-size: 14px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--ambar); }
+.abertura h1 { margin-top: 16px; color: var(--branco); font-size: clamp(34px, 4.6vw, 52px); font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; }
+.chamada { margin-top: 20px; max-width: 34em; font-size: 19px; color: #D5DEE8; }
+.acoes { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+
+.fatos { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.fatos li { display: flex; gap: 16px; align-items: stretch; padding: 18px 20px; background: rgba(255, 255, 255, .06); border: 1px solid rgba(255, 255, 255, .12); border-radius: var(--raio); }
+.fatos .barra { flex: none; width: 6px; border-radius: 3px; background: var(--ambar); }
+.fatos strong { display: block; font-size: 17px; font-weight: 700; color: var(--branco); }
+.fatos span:not(.barra) { display: block; margin-top: 2px; font-size: 15px; color: #C9D5E1; }
+
+/* ------------------------------------------------------------------ Seções */
+.secao { padding: 80px 0; }
+.secao.clara { background: var(--cinza-claro); }
+.apoio { margin-top: 10px; max-width: 40em; color: var(--cinza); }
+
+.cartoes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin-top: 36px; }
+.cartao { display: flex; flex-direction: column; gap: 10px; padding: 24px; background: var(--branco); border: 1px solid var(--linha); border-top: 4px solid var(--ambar); border-radius: var(--raio); }
+.cartao p { font-size: 16px; color: var(--cinza); }
+.etiqueta { align-self: flex-start; padding: 3px 10px; border-radius: 999px; background: #E3EDF7; color: var(--azul); font-size: 12.5px; font-weight: 700; }
+.etiqueta.local { background: #FDEFD3; color: #6B4300; }
+
+.passos { list-style: none; margin: 36px 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
+.passos li { padding: 24px; background: var(--branco); border: 1px solid var(--linha); border-radius: var(--raio); }
+.passos .numero { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; margin-bottom: 14px; border-radius: 50%; background: var(--azul); color: var(--branco); font-weight: 800; }
+.passos p { margin-top: 8px; font-size: 16px; color: var(--cinza); }
+
+.publicos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 48px; margin-top: 28px; }
+.publicos > div { padding: 22px 0 22px 20px; border-left: 4px solid var(--ambar); margin: 10px 0; }
+.publicos p { margin-top: 6px; color: var(--cinza); }
+
+.sistema-grade { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 48px; align-items: center; }
+.sistema-grade p { margin-top: 14px; color: var(--cinza); }
+.lista { margin: 18px 0 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+.lista li { position: relative; padding-left: 26px; font-weight: 600; }
+.lista li::before { content: ''; position: absolute; left: 0; top: .62em; width: 14px; height: 4px; border-radius: 2px; background: var(--ambar); }
+.tela { margin: 0; border: 1px solid var(--linha); border-radius: var(--raio); overflow: hidden; background: var(--branco); box-shadow: 0 18px 40px rgba(15, 42, 67, .14); }
+
+/* ----------------------------------------------------------------- Contato */
+.contato { background: var(--azul); color: var(--branco); padding: 80px 0; }
+.contato h2 { color: var(--branco); }
+.contato-grade { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 56px; align-items: start; }
+.contato p { margin-top: 14px; max-width: 32em; color: #D5DEE8; }
+.dados { margin: 0; display: grid; gap: 0; border-top: 1px solid rgba(255, 255, 255, .18); }
+.dados > div { padding: 16px 0; border-bottom: 1px solid rgba(255, 255, 255, .18); }
+.dados dt { font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--ambar); }
+.dados dd { margin: 4px 0 0; font-size: 17px; font-weight: 600; }
+
+.rodape { background: #0B2136; color: #AEBDCC; padding: 28px 0; font-size: 14px; }
+.rodape-linha { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+
+/* -------------------------------------------------------------- Responsivo */
+@media (max-width: 960px) {
+  .abertura { padding: 60px 0 64px; }
+  .abertura-grade, .sistema-grade, .contato-grade { grid-template-columns: minmax(0, 1fr); gap: 36px; }
+  .cartoes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .passos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .secao, .contato { padding: 60px 0; }
+}
+
+@media (max-width: 720px) {
+  .menu { display: none; }
+  .topo-linha { justify-content: space-between; gap: 12px; min-height: 60px; }
+  .marca img { width: 150px; }
+  .topo .botao { min-height: 40px; padding: 8px 14px; font-size: 14px; }
+}
+
+@media (max-width: 600px) {
+  body { font-size: 16px; }
+  .faixa { padding: 0 16px; }
+  .cartoes, .passos, .publicos { grid-template-columns: minmax(0, 1fr); }
+  .publicos { gap: 0; }
+  .acoes .botao { flex: 1 1 100%; }
+  .chamada { font-size: 17px; }
+}
