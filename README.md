@@ -11,9 +11,9 @@ Repositório do site e dos sistemas da DEF Engenharia, empresa de engenharia el�
 
 ## Site
 
-Página única com os serviços, como funciona o atendimento, para quem a empresa trabalha e os contatos. Com o GitHub Pages ativo, abre em `https://diogopvhlp-cmd.github.io/`.
+Página única com os serviços, como funciona o atendimento, para quem a empresa trabalha e o sistema de orçamento. Com o GitHub Pages ativo, abre em `https://diogopvhlp-cmd.github.io/`.
 
-Os contatos ficam no fim do arquivo `index.html`, na seção "Contato": telefone e WhatsApp, e-mail e responsável técnico. O número do WhatsApp e o e-mail aparecem duas vezes cada um, no botão (links `wa.me` e `mailto:`) e na lista de dados, e precisam ser trocados nos dois lugares.
+O site ainda não mostra telefone, e-mail, nome nem número do CREA. A seção "Atendimento", no fim do arquivo `index.html`, avisa que o telefone e o e-mail serão divulgados em breve. Quando houver esses dados, é nessa seção que eles entram.
 
 ## DEF Obras
 
