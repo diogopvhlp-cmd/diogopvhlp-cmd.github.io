@@ -4,9 +4,16 @@ Repositório do site e dos sistemas da DEF Engenharia, empresa de engenharia el�
 
 | Pasta | O que tem |
 | --- | --- |
+| `index.html` e `assets/site/` | Site da empresa, que abre na raiz do endereço |
 | `sistema/` | DEF Obras, o sistema de orçamento e controle de obras |
 | `assets/logo/` | Logo da empresa em SVG e PNG, com um guia rápido de uso |
 | `tests/` | Testes automáticos dos cálculos e do sistema no navegador |
+
+## Site
+
+Página única com os serviços, como funciona o atendimento, para quem a empresa trabalha e o sistema de orçamento. Com o GitHub Pages ativo, abre em `https://diogopvhlp-cmd.github.io/`.
+
+O site ainda não mostra telefone, e-mail, nome nem número do CREA. A seção "Atendimento", no fim do arquivo `index.html`, avisa que o telefone e o e-mail serão divulgados em breve. Quando houver esses dados, é nessa seção que eles entram.
 
 ## DEF Obras
 
